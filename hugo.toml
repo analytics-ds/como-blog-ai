@@ -1,4 +1,4 @@
-baseURL = 'https://blog.como.fr/'
+baseURL = 'https://magazine.como.fr/'
 title = 'Premium Drive Magazine'
 theme = 'premium-drive'
 defaultContentLanguage = 'fr'
@@ -168,7 +168,7 @@ defaultContentLanguageInSubdir = false
 [params]
   description = "Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz"
   author_name = "La redaction Premium Drive"
-  author_url = "https://blog.como.fr/"
+  author_url = "https://magazine.como.fr/"
   author_job_title = "Redaction automobile"
   theme_name = "premium-drive"
 
