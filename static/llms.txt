@@ -1,0 +1,23 @@
+# Premium Drive Magazine
+
+> Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz
+
+## A propos
+
+Premium Drive Magazine est un media independant dedie a l'univers Mercedes-Benz. Le site publie des guides d'achat, des comparatifs de modeles, des analyses de financement (LOA, LLD) et des conseils pratiques pour les acheteurs Mercedes en France, et particulierement en Ile-de-France.
+
+## Contenu principal
+
+- Modeles et comparatifs : tests, face-a-face entre modeles Mercedes et concurrents
+- Financement : guides LOA, LLD, prix par modele, simulation de mensualites
+- Electrique : autonomie, recharge, CLA electrique, gamme EQ, aides et avantages fiscaux
+- Occasion : acheter une Mercedes d'occasion, garanties, concessionnaires certifies
+- Concessionnaires : guide des concessionnaires Mercedes a Paris et en Ile-de-France
+- Conseils pratiques : negociation, entretien, choix du concessionnaire
+
+## Informations techniques
+
+- Generateur : Hugo
+- Hebergement : GitHub Pages
+- Sitemap : https://blog.como.fr/sitemap.xml
+- RSS : https://blog.como.fr/index.xml

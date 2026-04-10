@@ -1,0 +1,183 @@
+baseURL = 'https://blog.como.fr/'
+title = 'Premium Drive Magazine'
+theme = 'premium-drive'
+defaultContentLanguage = 'fr'
+defaultContentLanguageInSubdir = false
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[languages]
+  [languages.fr]
+    languageCode = 'fr'
+    languageName = 'Francais'
+    weight = 1
+    [languages.fr.params]
+      description = "Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz"
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'English'
+    weight = 2
+    contentDir = 'content/en'
+    [languages.en.params]
+      description = "The ultimate guide to buying, financing and maintaining your Mercedes-Benz"
+
+[[menus.main]]
+  name = 'Accueil'
+  url = '/'
+  weight = 1
+
+[[menus.main]]
+  name = 'Thematiques'
+  url = '#'
+  weight = 2
+  identifier = 'thematiques'
+
+[[menus.main]]
+  name = 'Le Blog'
+  url = '/blog/'
+  weight = 3
+
+# Sous-menu Thematiques
+[[menus.main]]
+  name = 'Modeles et comparatifs'
+  url = '/categories/modeles-et-comparatifs/'
+  parent = 'thematiques'
+  weight = 1
+  [menus.main.params]
+    description = 'Tests, face-a-face et guides de choix entre modeles'
+    icon = 'car'
+
+[[menus.main]]
+  name = 'Financement'
+  url = '/categories/financement/'
+  parent = 'thematiques'
+  weight = 2
+  [menus.main.params]
+    description = 'LOA, LLD, prix et simulation de mensualites'
+    icon = 'wallet'
+
+[[menus.main]]
+  name = 'Electrique'
+  url = '/categories/electrique/'
+  parent = 'thematiques'
+  weight = 3
+  [menus.main.params]
+    description = 'CLA electrique, gamme EQ, autonomie et recharge'
+    icon = 'bolt'
+
+[[menus.main]]
+  name = 'Occasion'
+  url = '/categories/occasion/'
+  parent = 'thematiques'
+  weight = 4
+  [menus.main.params]
+    description = 'Acheter une Mercedes certifiee en toute confiance'
+    icon = 'tag'
+
+[[menus.main]]
+  name = 'Concessionnaires'
+  url = '/categories/concessionnaires/'
+  parent = 'thematiques'
+  weight = 5
+  [menus.main.params]
+    description = 'Guide des concessionnaires a Paris et en IDF'
+    icon = 'map'
+
+[[menus.main]]
+  name = 'Conseils pratiques'
+  url = '/categories/conseils-pratiques/'
+  parent = 'thematiques'
+  weight = 6
+  [menus.main.params]
+    description = 'Negociation, entretien et astuces achat'
+    icon = 'bulb'
+
+# Menu anglais
+[[languages.en.menus.main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
+
+[[languages.en.menus.main]]
+  name = 'Topics'
+  url = '#'
+  weight = 2
+  identifier = 'thematiques'
+
+[[languages.en.menus.main]]
+  name = 'The Blog'
+  url = '/blog/'
+  weight = 3
+
+[[languages.en.menus.main]]
+  name = 'Models and comparisons'
+  url = '/categories/models-and-comparisons/'
+  parent = 'thematiques'
+  weight = 1
+  [languages.en.menus.main.params]
+    description = 'Reviews, head-to-heads and buying guides'
+    icon = 'car'
+
+[[languages.en.menus.main]]
+  name = 'Financing'
+  url = '/categories/financing/'
+  parent = 'thematiques'
+  weight = 2
+  [languages.en.menus.main.params]
+    description = 'Leasing, pricing and monthly payment simulations'
+    icon = 'wallet'
+
+[[languages.en.menus.main]]
+  name = 'Electric'
+  url = '/categories/electric/'
+  parent = 'thematiques'
+  weight = 3
+  [languages.en.menus.main.params]
+    description = 'CLA electric, EQ range, range and charging'
+    icon = 'bolt'
+
+[[languages.en.menus.main]]
+  name = 'Used cars'
+  url = '/categories/used-cars/'
+  parent = 'thematiques'
+  weight = 4
+  [languages.en.menus.main.params]
+    description = 'Buy a certified Mercedes with confidence'
+    icon = 'tag'
+
+[[languages.en.menus.main]]
+  name = 'Dealers'
+  url = '/categories/dealers/'
+  parent = 'thematiques'
+  weight = 5
+  [languages.en.menus.main.params]
+    description = 'Guide to Mercedes dealers in Paris and IDF'
+    icon = 'map'
+
+[[languages.en.menus.main]]
+  name = 'Practical tips'
+  url = '/categories/practical-tips/'
+  parent = 'thematiques'
+  weight = 6
+  [languages.en.menus.main.params]
+    description = 'Negotiation, maintenance and buying tips'
+    icon = 'bulb'
+
+[params]
+  description = "Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz"
+  author_name = "La redaction Premium Drive"
+  author_url = "https://blog.como.fr/"
+  author_job_title = "Redaction automobile"
+  theme_name = "premium-drive"
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

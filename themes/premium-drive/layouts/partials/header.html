@@ -1,0 +1,114 @@
+<header class="site-header">
+    <div class="header-container">
+        <a href="{{ "/" | relURL }}" class="site-logo">
+            {{ .Site.Title }}
+        </a>
+
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="site-nav" role="navigation">
+            {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-link--dropdown" aria-expanded="false">
+                        {{ .Name }}
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="mega-menu">
+                        <div class="mega-menu-inner">
+                            <div class="mega-menu-header">
+                                <span class="mega-menu-title">{{ if eq $.Site.Language.Lang "fr" }}Toutes les thematiques{{ else }}All topics{{ end }}</span>
+                                <span class="mega-menu-subtitle">{{ if eq $.Site.Language.Lang "fr" }}Explorez nos guides et articles par sujet{{ else }}Browse our guides and articles by topic{{ end }}</span>
+                            </div>
+                            <div class="mega-menu-grid">
+                                {{ range .Children }}
+                                <a href="{{ .URL | relURL }}" class="mega-menu-item">
+                                    <span class="mega-menu-icon" data-icon="{{ .Params.icon }}"></span>
+                                    <div class="mega-menu-item-content">
+                                        <span class="mega-menu-item-name">{{ .Name }}</span>
+                                        <span class="mega-menu-item-desc">{{ .Params.description }}</span>
+                                    </div>
+                                </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ else if not .Parent }}
+                <a href="{{ .URL | relURL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
+                    {{ .Name }}
+                </a>
+                {{ end }}
+            {{ end }}
+
+            <!-- Language switcher -->
+            {{ if gt (len .Site.Languages) 1 }}
+            <div class="lang-switcher">
+                {{ range $.Site.Languages }}
+                {{ if eq . $.Site.Language }}
+                <span class="lang-link lang-link--active">{{ upper .Lang }}</span>
+                {{ else }}
+                  {{ if eq .Lang "fr" }}
+                <a href="{{ "/" | relURL }}" class="lang-link">{{ upper .Lang }}</a>
+                  {{ else }}
+                <a href="{{ (printf "/%s/" .Lang) | relURL }}" class="lang-link">{{ upper .Lang }}</a>
+                  {{ end }}
+                {{ end }}
+                {{ end }}
+            </div>
+            {{ end }}
+        </nav>
+    </div>
+</header>
+
+<script>
+// Mobile hamburger
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.site-nav');
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('nav-open');
+});
+
+// Mega menu toggle (click on desktop, tap on mobile)
+document.querySelectorAll('.nav-link--dropdown').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = this.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('is-open');
+        // Close all
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) {
+            d.classList.remove('is-open');
+            d.querySelector('.nav-link--dropdown').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle current
+        if (!isOpen) {
+            dropdown.classList.add('is-open');
+            this.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
+// Close mega menu on click outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) {
+            d.classList.remove('is-open');
+            d.querySelector('.nav-link--dropdown').setAttribute('aria-expanded', 'false');
+        });
+    }
+});
+
+// Close mega menu on Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) {
+            d.classList.remove('is-open');
+            d.querySelector('.nav-link--dropdown').setAttribute('aria-expanded', 'false');
+        });
+    }
+});
+</script>
