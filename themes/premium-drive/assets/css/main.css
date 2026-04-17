@@ -1461,3 +1461,18 @@ img {
     .site-header .lang-switcher-trigger { padding: 5px 8px; }
 }
 
+
+
+/* === Fix overflow header v2 (force proper padding, prevent horizontal overflow) === */
+html, body { overflow-x: clip; }
+.site-header { overflow: visible; }
+.site-header .header-container {
+    padding-left: clamp(12px, 2vw, 32px) !important;
+    padding-right: clamp(12px, 2vw, 32px) !important;
+    box-sizing: border-box;
+    width: 100%;
+}
+.lang-switcher-menu {
+    max-width: calc(100vw - 24px);
+}
+
