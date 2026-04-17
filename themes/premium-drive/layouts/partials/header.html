@@ -45,20 +45,41 @@
 
             <!-- Language switcher -->
             {{ if gt (len .Site.Languages) 1 }}
-            <div class="lang-switcher">
-                {{ range $.Site.Languages }}
-                {{ if eq . $.Site.Language }}
-                <span class="lang-link lang-link--active">{{ upper .Lang }}</span>
-                {{ else }}
-                  {{ if eq .Lang "fr" }}
-                <a href="{{ "/" | relURL }}" class="lang-link">{{ upper .Lang }}</a>
-                  {{ else }}
-                <a href="{{ (printf "/%s/" .Lang) | relURL }}" class="lang-link">{{ upper .Lang }}</a>
-                  {{ end }}
-                {{ end }}
-                {{ end }}
-            </div>
-            {{ end }}
+{{- /* Build translations-by-lang map using URL prefix (reliable in multi-contentDir setups) */ -}}
+{{- $currentLang := .Lang | default "fr" -}}
+{{- $defaultLang := "fr" -}}
+{{- $translationsByLang := dict $currentLang .RelPermalink -}}
+{{- range .Translations -}}
+    {{- $urlLang := "fr" -}}
+    {{- if hasPrefix .RelPermalink "/en/" -}}{{- $urlLang = "en" -}}{{- end -}}
+    {{- $translationsByLang = merge $translationsByLang (dict $urlLang .RelPermalink) -}}
+{{- end -}}
+{{- $flags := dict "fr" (dict "name" "Francais" "flag" "/images/flags/fr.svg") "en" (dict "name" "English" "flag" "/images/flags/en.svg") -}}
+{{- $currentFlag := index $flags $currentLang -}}
+<div class="lang-switcher" data-lang-switcher>
+    <button type="button" class="lang-switcher-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <img src="{{ (index $currentFlag "flag") | relURL }}" alt="" width="20" height="15" class="lang-flag" loading="lazy">
+        <span class="lang-code">{{ upper $currentLang }}</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <ul class="lang-switcher-menu" role="listbox">
+        {{ range .Site.Languages }}
+        {{ $targetLang := .Lang }}
+        {{ $flagData := index $flags $targetLang }}
+        {{ $isCurrent := eq $targetLang $currentLang }}
+        {{ $target := index $translationsByLang $targetLang }}
+        {{ if not $target }}{{ if eq $targetLang $defaultLang }}{{ $target = "/" }}{{ else }}{{ $target = printf "/%s/" $targetLang }}{{ end }}{{ end }}
+        <li role="option" aria-selected="{{ if $isCurrent }}true{{ else }}false{{ end }}">
+            <a href="{{ $target }}" class="lang-switcher-item {{ if $isCurrent }}is-current{{ end }}" hreflang="{{ $targetLang }}">
+                <img src="{{ (index $flagData "flag") | relURL }}" alt="" width="20" height="15" class="lang-flag" loading="lazy">
+                <span>{{ index $flagData "name" }}</span>
+                {{ if $isCurrent }}<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" class="lang-switcher-check"><path d="M3 7L5.5 9.5L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ end }}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
         </nav>
     </div>
 </header>
