@@ -19,6 +19,7 @@
                     {{ range .Site.Menus.main }}
                     <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
                     {{ end }}
+                    <li><a href="{{ "plan-du-site/" | relLangURL }}">Plan du site</a></li>
                 </ul>
             </div>
         </div>

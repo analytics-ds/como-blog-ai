@@ -1500,3 +1500,81 @@ img {
     .site-header .site-logo img { max-width: 130px; }
 }
 
+
+/* === Plan de site HTML (sitemap-html.html) === */
+.plan-site-page { padding: 3rem 0 4rem; }
+.plan-site-header { text-align: center; margin-bottom: 3rem; }
+.plan-site-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; }
+.plan-site-desc { opacity: 0.75; font-size: 1rem; max-width: 620px; margin: 0 auto; }
+.plan-site-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+@media (max-width: 900px) { .plan-site-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+@media (max-width: 560px) { .plan-site-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+.plan-site-col { min-width: 0; }
+.plan-site-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #2F9D5B;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(47, 157, 91, 0.25);
+}
+.plan-site-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.plan-site-list li { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; line-height: 1.45; }
+.plan-emoji { flex-shrink: 0; display: inline-block; width: 1.5em; font-size: 0.95em; }
+.plan-site-list a { text-decoration: none; color: inherit; }
+.plan-site-list a:hover { color: #2F9D5B; text-decoration: underline; }
+.plan-count { font-size: 0.78rem; opacity: 0.55; }
+
+
+
+/* === Fix lang-switcher dropdown visibility (overflow clip était le coupable) === */
+.site-header {
+    overflow: visible !important;
+    max-width: none !important;
+}
+.site-header .header-container {
+    overflow: visible !important;
+}
+body {
+    overflow-x: clip;
+}
+/* Force menu items visible with explicit colors */
+.lang-switcher-menu {
+    z-index: 999 !important;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+.lang-switcher-item {
+    color: #111 !important;
+    background: transparent;
+}
+.lang-switcher-item:hover {
+    background: #f3f4f6 !important;
+    color: #111 !important;
+}
+.lang-switcher-item.is-current {
+    background: #f3f4f6 !important;
+    color: #111 !important;
+    font-weight: 500;
+}
+/* Sur les themes sombres, overrides explicites */
+[data-theme="dark"] .lang-switcher-menu {
+    background: #17181B;
+    border: 1px solid #2A2B30;
+    box-shadow: 0 20px 48px rgba(0,0,0,0.6);
+}
+[data-theme="dark"] .lang-switcher-item {
+    color: #F7F8F8 !important;
+}
+[data-theme="dark"] .lang-switcher-item:hover {
+    background: #22232A !important;
+    color: #F7F8F8 !important;
+}
+[data-theme="dark"] .lang-switcher-item.is-current {
+    background: #22232A !important;
+    color: #F7F8F8 !important;
+}
+
