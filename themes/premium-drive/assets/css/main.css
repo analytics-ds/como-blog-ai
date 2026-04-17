@@ -1433,3 +1433,31 @@ img {
 .lang-switcher-mobile .lang-switcher-item:last-child {
     border-bottom: none;
 }
+
+/* === Flag lang switcher : fix overflow + header constraints === */
+.site-header .header-container {
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+.site-header .lang-switcher {
+    flex-shrink: 0;
+    position: relative;
+}
+.site-header .lang-switcher-trigger {
+    box-sizing: border-box;
+    max-height: 36px;
+    line-height: 1;
+    white-space: nowrap;
+}
+.site-header .lang-switcher-trigger img.lang-flag {
+    flex-shrink: 0;
+}
+.site-header .lang-switcher-menu {
+    max-width: 90vw;
+    box-sizing: border-box;
+}
+@media (max-width: 640px) {
+    .site-header .lang-switcher-trigger span.lang-code { display: none; }
+    .site-header .lang-switcher-trigger { padding: 5px 8px; }
+}
+
