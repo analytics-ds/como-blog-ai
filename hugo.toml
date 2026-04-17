@@ -185,3 +185,8 @@ defaultContentLanguageInSubdir = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Desactiver la minification XML pour avoir un sitemap lisible
+[minify]
+  disableXML = true
+
