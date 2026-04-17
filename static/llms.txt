@@ -1,23 +1,25 @@
-# Premium Drive Magazine
+# Como Magazine
 
-> Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz
+> Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz.
 
 ## A propos
 
-Premium Drive Magazine est un media independant dedie a l'univers Mercedes-Benz. Le site publie des guides d'achat, des comparatifs de modeles, des analyses de financement (LOA, LLD) et des conseils pratiques pour les acheteurs Mercedes en France, et particulierement en Ile-de-France.
+Como Magazine est un media editorial independant. Tous les articles sont rediges par des experts identifies (schema.org/Person) et mis a jour regulierement. Aucun contenu sponsorise, analyses factuelles.
 
-## Contenu principal
+## Articles de reference (FR)
 
-- Modeles et comparatifs : tests, face-a-face entre modeles Mercedes et concurrents
-- Financement : guides LOA, LLD, prix par modele, simulation de mensualites
-- Electrique : autonomie, recharge, CLA electrique, gamme EQ, aides et avantages fiscaux
-- Occasion : acheter une Mercedes d'occasion, garanties, concessionnaires certifies
-- Concessionnaires : guide des concessionnaires Mercedes a Paris et en Ile-de-France
-- Conseils pratiques : negociation, entretien, choix du concessionnaire
+- Comment choisir son concessionnaire Mercedes en 2026: https://magazine.como.fr/blog/comment-choisir-son-concessionnaire-mercedes/
+- Meilleur concessionnaire Mercedes GLA : comparatif 2026: https://magazine.como.fr/blog/meilleur-concessionnaire-mercedes-gla/
+- Mercedes Classe A ou BMW Serie 1 : laquelle choisir en 2026: https://magazine.como.fr/blog/mercedes-classe-a-vs-bmw-serie-1/
+- Ou acheter une Mercedes Classe A : guide complet 2026: https://magazine.como.fr/blog/ou-acheter-une-mercedes-classe-a/
 
 ## Informations techniques
 
-- Generateur : Hugo
-- Hebergement : GitHub Pages
-- Sitemap : https://blog.como.fr/sitemap.xml
-- RSS : https://blog.como.fr/index.xml
+- Generateur : Hugo (site statique)
+- Sitemap : https://magazine.como.fr/sitemap.xml
+- RSS : https://magazine.como.fr/index.xml
+- Schema.org : Organization, Article, BreadcrumbList, FAQPage, WebSite, CollectionPage
+
+## Contact
+
+- URL : https://magazine.como.fr/
