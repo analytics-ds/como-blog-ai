@@ -51,7 +51,7 @@
 {{- $translationsByLang := dict $currentLang .RelPermalink -}}
 {{- range .Translations -}}
     {{- $urlLang := "fr" -}}
-    {{- if hasPrefix .RelPermalink "/en/" -}}{{- $urlLang = "en" -}}{{- end -}}
+    {{- if in .RelPermalink "/en/" -}}{{- $urlLang = "en" -}}{{- end -}}
     {{- $translationsByLang = merge $translationsByLang (dict $urlLang .RelPermalink) -}}
 {{- end -}}
 {{- $flags := dict "fr" (dict "name" "Francais" "flag" "/images/flags/fr.svg") "en" (dict "name" "English" "flag" "/images/flags/en.svg") -}}
