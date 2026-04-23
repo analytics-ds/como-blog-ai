@@ -1,5 +1,5 @@
 baseURL = 'https://magazine.como.fr/'
-title = 'Premium Drive Magazine'
+title = 'Magazine Como'
 theme = 'premium-drive'
 defaultContentLanguage = 'fr'
 defaultContentLanguageInSubdir = false
@@ -167,9 +167,9 @@ defaultContentLanguageInSubdir = false
 
 [params]
   description = "Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz"
-  author_name = "La redaction Premium Drive"
-  author_url = "https://magazine.como.fr/"
-  author_job_title = "Redaction automobile"
+  # Auteur principal du site (fallback si un article n'a pas de champ `author`).
+  # La source de verite des auteurs est data/authors.yaml (ID-slug dans le frontmatter).
+  default_author_id = "julien-lambert"
   theme_name = "premium-drive"
 
 [sitemap]

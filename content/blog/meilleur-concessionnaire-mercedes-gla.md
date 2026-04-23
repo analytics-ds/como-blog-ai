@@ -5,7 +5,7 @@ lastmod: 2026-04-12
 description: "Quel est le meilleur concessionnaire Mercedes GLA ? Comparatif de 4 groupes : reseau, services, prix et avis."
 categories: ["Concessionnaires"]
 tags: ["concessionnaire Mercedes", "Mercedes GLA", "comparatif concessionnaires", "Como Mercedes", "LOA Mercedes", "Mercedes occasion", "SUV Mercedes"]
-author: "La redaction Premium Drive"
+author: julien-lambert
 readingTime: true
 ---
 

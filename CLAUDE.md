@@ -70,16 +70,14 @@ Ce repo ne contient pas de site. Il contient les **instructions et templates** p
 > Cette section est remplie automatiquement par le skill `/create-site`.
 > Elle permet a Claude de connaitre le contexte du site pour les futures actions.
 
-- **Nom du site** : Premium Drive Magazine
+- **Nom du site** : Magazine Como
 - **Description** : Le magazine de reference pour bien acheter, financer et entretenir sa Mercedes-Benz
 - **URL** : https://magazine.como.fr/
 - **Couleurs** : primary #0D0D0D (noir), accent #C0C0C0 (argent), cta #00ADEF (bleu Mercedes), background #F5F5F5 (gris clair)
 - **Polices** : Playfair Display (titres), Source Serif 4 (corps), Inter (UI)
 - **Categories** : Modeles et comparatifs, Financement, Electrique, Occasion, Concessionnaires, Conseils pratiques
 - **Langue** : Francais (fr) + Anglais (en) dans /en/
-- **Auteur** : La redaction Premium Drive
-- **URL auteur** : https://magazine.como.fr/
-- **Fonction auteur** : Redaction automobile
+- **Auteur principal** : Julien Lambert (ID slug : `julien-lambert`). Source de verite : `data/authors.yaml`. Frontmatter des articles : `author: julien-lambert`. Le rendu du nom et la fiche schema.org/Person sont resolus automatiquement par les layouts via `.Site.Data.authors`.
 
 ## Regles generales
 

@@ -11,7 +11,7 @@ tags:
   - "Classe A"
   - "BMW Serie 1"
   - "comparatif"
-author: "La redaction Premium Drive"
+author: julien-lambert
 ---
 
 ## Deux compactes premium face a face

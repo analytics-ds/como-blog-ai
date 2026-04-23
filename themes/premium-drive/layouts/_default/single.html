@@ -18,9 +18,10 @@
             <p class="article-description">{{ . }}</p>
             {{ end }}
             {{ with .Params.author }}
+            {{ $authorData := index $.Site.Data.authors . }}
             <div class="article-author">
-                <span class="author-label">Par</span>
-                <span class="author-name">{{ . }}</span>
+                <span class="author-label">{{ if eq $.Site.Language.Lang "en" }}By{{ else }}Par{{ end }}</span>
+                <span class="author-name">{{ with $authorData }}{{ .name }}{{ else }}{{ $ }}{{ end }}</span>
             </div>
             {{ end }}
             <div class="article-tags">

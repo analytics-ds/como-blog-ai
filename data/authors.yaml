@@ -1,0 +1,87 @@
+# Auteurs du blog — multilingue FR/EN
+# Lu nativement par Hugo via `.Site.Data.authors` dans les templates
+# (partials seo-head.html + single.html).
+#
+# Dans le frontmatter des articles, utiliser l'ID slug comme valeur de `author:`
+# Exemple : author: julien-lambert
+#
+# Persona fictif mais coherent avec la ligne editoriale de Magazine Como
+# (auto, Mercedes-Benz, leasing, electrique, conseils pratiques).
+
+julien-lambert:
+  id: julien-lambert
+  name: Julien Lambert
+  type: person
+  avatar: /images/authors/julien-lambert.webp
+  linkedinUrl: ""
+  jobTitle:
+    fr: Journaliste automobile, expert Mercedes-Benz et financement
+    en: Automotive journalist, Mercedes-Benz and leasing expert
+  role:
+    fr: Redacteur en chef
+    en: Editor-in-chief
+  bio:
+    fr: "Journaliste automobile depuis quinze ans, Julien Lambert a collabore avec L'Argus et Caradisiac avant de se specialiser dans l'univers Mercedes-Benz. Il teste chaque annee plus de quarante modeles et suit de pres les evolutions du marche du leasing, de l'occasion et des vehicules electriques premium. Il anime aujourd'hui la redaction de Magazine Como avec l'ambition de rendre la mobilite haut de gamme accessible et comprehensible pour tous les conducteurs."
+    en: "A fifteen-year veteran of automotive journalism, Julien Lambert previously wrote for L'Argus and Caradisiac before specializing in the Mercedes-Benz universe. He tests more than forty models each year and closely follows the leasing, used car and premium electric vehicle markets. He now leads the editorial team at Magazine Como with the mission of making premium mobility accessible and understandable for every driver."
+  expertise:
+    - Mercedes-Benz
+    - Financement automobile (LOA/LLD)
+    - Vehicules electriques premium
+    - Hybrides rechargeables
+    - Entretien automobile
+    - Vehicules d'occasion
+    - Reglementation automobile
+  topics:
+    - mercedes
+    - mercedes-benz
+    - voiture
+    - auto
+    - automobile
+    - leasing
+    - loa
+    - lld
+    - financement
+    - entretien
+    - vidange
+    - pneus
+    - pneus hiver
+    - electrique
+    - voiture electrique
+    - hybride
+    - hybride rechargeable
+    - carte grise
+    - controle technique
+    - batterie
+    - batterie voiture
+    - carburant
+    - diesel
+    - essence
+    - occasion
+    - concessionnaire
+    - classe a
+    - classe c
+    - classe e
+    - glc
+    - gla
+    - eqa
+    - eqb
+    - eqc
+    - suv
+    - berline
+    - break
+    - crit air
+    - vignette crit air
+    - courroie
+    - courroie de distribution
+    - recharge
+    - recharge voiture electrique
+    - autonomie
+    - consommation
+    - consommation carburant
+  worksFor:
+    name: Magazine Como
+    url: https://magazine.como.fr/
+  sameAs: []
+  # Prompt pour generer l'avatar WebP 512x512 via Midjourney / DALL-E.
+  # A lancer manuellement, placer le resultat dans static/images/authors/julien-lambert.webp
+  avatarPrompt: "Flat illustration portrait, 512x512, centered composition, male character in his early forties, short well-kept dark brown hair with subtle grey at the temples, trimmed short beard, wearing a dark navy blazer over a light grey polo, confident friendly expression looking slightly off-camera, warm professional lighting, solid soft beige background, editorial magazine style, clean vector-like illustration, no text, no logo, no watermark."
