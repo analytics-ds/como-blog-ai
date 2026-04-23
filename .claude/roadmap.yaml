@@ -1,0 +1,40 @@
+# Roadmap editoriale evergreen — Premium Drive Magazine (como-blog-ai)
+#
+# Pilote le 1er deploiement du systeme /create-article-auto.
+#
+# Blog : https://magazine.como.fr/
+# Langue principale : fr (+ EN auto dans /en/)
+# Categories disponibles (doivent matcher hugo.toml) :
+#   - Modeles et comparatifs
+#   - Financement
+#   - Electrique
+#   - Occasion
+#   - Concessionnaires
+#   - Conseils pratiques
+#
+# FONCTIONNEMENT
+# --------------
+# L'agent prend la premiere entree avec status: todo et scheduled_date <= today.
+# Il genere l'article FR + EN et push sur main. GitHub Actions deploie.
+# En cas d'echec, status passe a failed et error est rempli (voir notes dans
+# .claude/templates/roadmap-template.yaml).
+#
+# AJOUT D'UNE ENTREE
+# ------------------
+# Copier un bloc, remplir kw / category / scheduled_date, laisser les autres
+# champs tels quels. Respecter l'orthographe exacte d'une categorie ci-dessus.
+#
+# Frequence cible sur ce blog : 2 articles/semaine (mardi + vendredi, 3h du mat
+# une fois la routine /schedule en place).
+
+articles:
+  # A remplir par Damien (mots-cles evergreen auto/Mercedes/financement/etc.)
+  # Exemple de format :
+  # - kw: "prix entretien classe c"
+  #   category: "Conseils pratiques"
+  #   scheduled_date: "2026-04-28"
+  #   status: todo
+  #   published_date: null
+  #   published_url_fr: null
+  #   published_url_en: null
+  #   error: null

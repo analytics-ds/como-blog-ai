@@ -16,7 +16,8 @@ Ce repo ne contient pas de site. Il contient les **instructions et templates** p
 
 ### Utilisation courante
 
-- `/create-article` : creer un nouvel article de blog (choix parmi plusieurs types : article standard, comparatif)
+- `/create-article` : creer un nouvel article de blog (choix parmi plusieurs types : article standard, comparatif) — workflow interactif
+- `/create-article-auto` : **publication automatique** d'un article evergreen SEO bilingue FR+EN depuis la roadmap `.claude/roadmap.yaml`. Full auto, aucun input humain. Declenchee manuellement pour tester ou via routine `/schedule` 2x/semaine en production. Voir section "Publications evergreen automatiques" plus bas
 - `/seo-setup` : generer ou mettre a jour les fichiers SEO techniques de base (robots.txt, llms.txt, sitemap, structured data)
 - `/seo` : mode interactif pour modifier/ajouter des elements SEO (meta tags, JSON-LD, audit on-page, etc.)
 - `/serve` : lancer le serveur Hugo en local (previsualisation sur `http://localhost:1313/`)
@@ -28,13 +29,16 @@ Ce repo ne contient pas de site. Il contient les **instructions et templates** p
 .claude/
 ├── skills/
 │   ├── create-site.md           ← Workflow creation de site complet
-│   ├── create-article.md        ← Workflow creation d'article (multi-types)
+│   ├── create-article.md        ← Workflow creation d'article (multi-types, interactif)
+│   ├── create-article-auto.md   ← Publication auto d'article evergreen SEO depuis la roadmap (full auto)
 │   ├── seo-setup.md             ← Workflow fichiers SEO techniques (baseline)
 │   ├── seo.md                   ← Mode interactif SEO (modifications ponctuelles)
 │   ├── serve.md                 ← Lancer le serveur Hugo en local
 │   └── share.md                 ← Lancer Hugo + ngrok (partage public)
+├── roadmap.yaml                 ← Roadmap editoriale evergreen (alimente /create-article-auto)
 └── templates/
     ├── hugo-workflow.yml         ← GitHub Actions CI/CD
+    ├── roadmap-template.yaml     ← Squelette commente de la roadmap editoriale
     ├── main.css                  ← CSS avec variables de charte graphique
     ├── articles/                 ← Templates d'articles par type
     │   ├── article-standard.md   ← Article informatif SEO + GEO (type par defaut)
@@ -213,4 +217,42 @@ git add -A && git commit -m "Article : <titre>" && git push origin main
 ```
 
 **Si l une des 5 verifications echoue, NE PAS COMMIT et debugger.**
+
+## Publications evergreen automatiques
+
+En plus des articles GEO (comparatifs, rediges manuellement), ce blog publie automatiquement des articles evergreen SEO via la skill `/create-article-auto` (c'est le blog pilote du systeme, lance 2026-04-23).
+
+### Principe
+
+- SEO pur, pas GEO. Mot-cle simple, analyse SERP auto, structure Hn basee sur les concurrents, redaction FR + EN.
+- Full auto : aucun input humain au runtime. La seule intervention humaine est **la roadmap** (`.claude/roadmap.yaml`).
+- Frequence cible : 2 articles/semaine (mardi + vendredi, 3h du mat, via routine `/schedule`).
+
+### Roadmap
+
+Fichier : `.claude/roadmap.yaml`. Format documente dans `.claude/templates/roadmap-template.yaml`.
+
+Chaque entree decrit 1 article a publier. L'humain edite `kw`, `category`, `scheduled_date`. L'agent remplit `status`, `published_date`, `published_url_fr`, `published_url_en`, `error`.
+
+**Categories valides** (doivent matcher exactement le `hugo.toml`) :
+- Modeles et comparatifs
+- Financement
+- Electrique
+- Occasion
+- Concessionnaires
+- Conseils pratiques
+
+### Modifier la roadmap
+
+- Ajouter une entree : copier un bloc existant, remplir `kw` / `category` / `scheduled_date`, garder `status: todo`, laisser le reste a `null`.
+- Reporter : changer `scheduled_date`.
+- Debloquer un `failed` : corriger la cause indiquee dans `error`, repasser `status: todo`, vider `error`.
+
+Demander a Claude "ajoute ces KW a la roadmap Como" marche aussi, il edite le YAML en respectant le format.
+
+### Suivi
+
+- Roadmap : champs `published_date` + URLs des entrees traitees
+- `MEMORY.md` a la racine du blog : ligne par article avec suffixe `| auto` pour les articles generes par cette skill (vs les articles manuels via `/create-article`)
+- Logs : `.claude/logs/create-article-auto-[date].log` (rotation 30 derniers)
 
