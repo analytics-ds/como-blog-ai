@@ -276,6 +276,8 @@ Structure attendue :
 articles:
   - kw: "mot cle principal"
     category: "Categorie du blog"
+    volume: 1200        # informatif, ignore par l'agent
+    kd: 35              # informatif, ignore par l'agent
     scheduled_date: "2026-04-28"
     status: todo
     published_date: null
@@ -284,7 +286,10 @@ articles:
     error: null
 ```
 
-Les champs editables par l'humain : `kw`, `category`, `scheduled_date`, `status` (pour repasser un `failed` en `todo` apres correction).
+Les champs editables par l'humain :
+- `kw`, `category`, `scheduled_date` (obligatoires)
+- `volume`, `kd` (informatifs, aident l'humain a prioriser, **ignores par l'agent** — il ne s'en sert pas pour decider quoi que ce soit)
+- `status` (pour repasser un `failed` en `todo` apres correction)
 
 Les champs remplis par l'agent : `published_date`, `published_url_fr`, `published_url_en`, `error`, et bascule `status` vers `done` ou `failed`.
 

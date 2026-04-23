@@ -23,6 +23,10 @@
 #   kw              (obligatoire) Mot-cle principal SEO cible. Langue principale du blog.
 #   category        (obligatoire) Categorie du blog. Doit matcher une categorie definie
 #                                 dans le hugo.toml (en langue principale).
+#   volume          (informatif)  Volume mensuel de recherche. Aide l'humain a prioriser,
+#                                 ignore par l'agent. Laisser null si inconnu.
+#   kd              (informatif)  Keyword Difficulty 0-100. Aide l'humain a doser l'ambition,
+#                                 ignore par l'agent. Laisser null si inconnu.
 #   scheduled_date  (obligatoire) Date a partir de laquelle l'agent peut publier.
 #                                 Format : YYYY-MM-DD.
 #   status          todo | done | failed. Passer un failed en todo apres correction
@@ -53,6 +57,8 @@ articles:
   # ----- exemple (a supprimer ou remplacer) -----
   - kw: "exemple de mot cle"
     category: "Exemple de categorie"
+    volume: 1200
+    kd: 35
     scheduled_date: "2026-04-28"
     status: todo
     published_date: null

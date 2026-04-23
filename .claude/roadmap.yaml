@@ -1,10 +1,12 @@
 # Roadmap editoriale evergreen — Premium Drive Magazine (como-blog-ai)
 #
-# Pilote le 1er deploiement du systeme /create-article-auto.
+# Pilote le 1er deploiement du systeme /create-article-auto (depuis 2026-04-23).
+# Source : Google Sheet "Como - feuille de route blog evergreen magazine.como.fr"
+# https://docs.google.com/spreadsheets/d/1rJvJvoewI2IMLCenUxFX1mxhswmb37LiwwjvU1oHvv4
 #
 # Blog : https://magazine.como.fr/
 # Langue principale : fr (+ EN auto dans /en/)
-# Categories disponibles (doivent matcher hugo.toml) :
+# Categories valides (doivent matcher hugo.toml, sans accents) :
 #   - Modeles et comparatifs
 #   - Financement
 #   - Electrique
@@ -12,29 +14,425 @@
 #   - Concessionnaires
 #   - Conseils pratiques
 #
-# FONCTIONNEMENT
-# --------------
-# L'agent prend la premiere entree avec status: todo et scheduled_date <= today.
-# Il genere l'article FR + EN et push sur main. GitHub Actions deploie.
-# En cas d'echec, status passe a failed et error est rempli (voir notes dans
-# .claude/templates/roadmap-template.yaml).
+# CHAMPS
+# ------
+# Edites par l'humain :
+#   kw              Mot-cle principal SEO cible (langue principale)
+#   category        Categorie du blog (liste ci-dessus)
+#   volume          Volume mensuel de recherche (informatif, ignore par l'agent)
+#   kd              Difficulte du mot-cle 0-100 (informatif, ignore par l'agent)
+#   scheduled_date  YYYY-MM-DD, date a partir de laquelle l'agent peut publier
+#   status          todo | done | failed
 #
-# AJOUT D'UNE ENTREE
-# ------------------
-# Copier un bloc, remplir kw / category / scheduled_date, laisser les autres
-# champs tels quels. Respecter l'orthographe exacte d'une categorie ci-dessus.
+# Remplis par l'agent (ne pas toucher sauf pour debloquer un failed) :
+#   published_date, published_url_fr, published_url_en, error
 #
-# Frequence cible sur ce blog : 2 articles/semaine (mardi + vendredi, 3h du mat
-# une fois la routine /schedule en place).
+# FREQUENCE CIBLE : 2 articles/semaine (mardi + vendredi, 3h du mat via /schedule)
 
 articles:
-  # A remplir par Damien (mots-cles evergreen auto/Mercedes/financement/etc.)
-  # Exemple de format :
-  # - kw: "prix entretien classe c"
-  #   category: "Conseils pratiques"
-  #   scheduled_date: "2026-04-28"
-  #   status: todo
-  #   published_date: null
-  #   published_url_fr: null
-  #   published_url_en: null
-  #   error: null
+  - kw: "vignette crit air"
+    category: "Conseils pratiques"
+    volume: 188200
+    kd: 39
+    scheduled_date: "2026-04-27"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "diesel ou essence"
+    category: "Modeles et comparatifs"
+    volume: 3400
+    kd: 44
+    scheduled_date: "2026-04-30"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "meilleure voiture electrique"
+    category: "Electrique"
+    volume: 3100
+    kd: 39
+    scheduled_date: "2026-05-04"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quand changer courroie de distribution"
+    category: "Conseils pratiques"
+    volume: 4200
+    kd: 36
+    scheduled_date: "2026-05-07"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "meilleure voiture hybride"
+    category: "Electrique"
+    volume: 2100
+    kd: 39
+    scheduled_date: "2026-05-11"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "prix recharge voiture electrique"
+    category: "Electrique"
+    volume: 3100
+    kd: 27
+    scheduled_date: "2026-05-14"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "voiture qui consomme le moins"
+    category: "Modeles et comparatifs"
+    volume: 1200
+    kd: 29
+    scheduled_date: "2026-05-18"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quand faire controle technique"
+    category: "Conseils pratiques"
+    volume: 1900
+    kd: 39
+    scheduled_date: "2026-05-21"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "voiture essence qui consomme le moins"
+    category: "Modeles et comparatifs"
+    volume: 500
+    kd: 25
+    scheduled_date: "2026-05-25"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "combien coute une vidange"
+    category: "Conseils pratiques"
+    volume: 1000
+    kd: 38
+    scheduled_date: "2026-05-28"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "hybride ou hybride rechargeable"
+    category: "Electrique"
+    volume: 900
+    kd: 30
+    scheduled_date: "2026-06-01"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "duree de vie batterie voiture electrique"
+    category: "Electrique"
+    volume: 1000
+    kd: 32
+    scheduled_date: "2026-06-04"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "comment fonctionne une voiture hybride"
+    category: "Electrique"
+    volume: 1200
+    kd: 40
+    scheduled_date: "2026-06-08"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "vidange tous les combien"
+    category: "Conseils pratiques"
+    volume: 1700
+    kd: 27
+    scheduled_date: "2026-06-11"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "difference loa et lld"
+    category: "Financement"
+    volume: 720
+    kd: 28
+    scheduled_date: "2026-06-15"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quand faire vidange"
+    category: "Conseils pratiques"
+    volume: 1300
+    kd: 35
+    scheduled_date: "2026-06-18"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "comment fonctionne le leasing"
+    category: "Financement"
+    volume: 320
+    kd: 33
+    scheduled_date: "2026-06-22"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quand changer batterie voiture"
+    category: "Conseils pratiques"
+    volume: 480
+    kd: 42
+    scheduled_date: "2026-06-25"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "cout entretien voiture electrique"
+    category: "Electrique"
+    volume: 536
+    kd: 25
+    scheduled_date: "2026-06-29"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quand changer pneus voiture"
+    category: "Conseils pratiques"
+    volume: 436
+    kd: 42
+    scheduled_date: "2026-07-02"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "comment lire carte grise"
+    category: "Conseils pratiques"
+    volume: 300
+    kd: 39
+    scheduled_date: "2026-07-06"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "combien coute carte grise"
+    category: "Conseils pratiques"
+    volume: 300
+    kd: 39
+    scheduled_date: "2026-07-09"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "voiture hybride ou electrique"
+    category: "Electrique"
+    volume: 200
+    kd: 21
+    scheduled_date: "2026-07-13"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "combien coute controle technique"
+    category: "Conseils pratiques"
+    volume: 200
+    kd: 34
+    scheduled_date: "2026-07-16"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "avis mercedes classe a"
+    category: "Modeles et comparatifs"
+    volume: 390
+    kd: 24
+    scheduled_date: "2026-07-20"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "comment recharger une voiture electrique"
+    category: "Electrique"
+    volume: 118
+    kd: 20
+    scheduled_date: "2026-07-23"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "avis mercedes glc"
+    category: "Modeles et comparatifs"
+    volume: 236
+    kd: 41
+    scheduled_date: "2026-07-27"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "comment choisir pneus hiver"
+    category: "Conseils pratiques"
+    volume: 10
+    kd: 38
+    scheduled_date: "2026-07-30"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "meilleur suv familial"
+    category: "Modeles et comparatifs"
+    volume: 210
+    kd: 26
+    scheduled_date: "2026-08-03"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "berline ou suv"
+    category: "Modeles et comparatifs"
+    volume: 210
+    kd: 17
+    scheduled_date: "2026-08-06"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "huile moteur mercedes classe a"
+    category: "Conseils pratiques"
+    volume: 210
+    kd: 33
+    scheduled_date: "2026-08-10"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "break ou suv"
+    category: "Modeles et comparatifs"
+    volume: 140
+    kd: 36
+    scheduled_date: "2026-08-13"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "pourquoi voiture electrique"
+    category: "Electrique"
+    volume: 20
+    kd: null
+    scheduled_date: "2026-08-17"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "quelle mercedes choisir"
+    category: "Modeles et comparatifs"
+    volume: 50
+    kd: 25
+    scheduled_date: "2026-08-20"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "consommation mercedes classe a"
+    category: "Modeles et comparatifs"
+    volume: 140
+    kd: 31
+    scheduled_date: "2026-08-24"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "consommation mercedes glc"
+    category: "Modeles et comparatifs"
+    volume: 20
+    kd: null
+    scheduled_date: "2026-08-27"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
+
+  - kw: "autonomie mercedes eqa"
+    category: "Modeles et comparatifs"
+    volume: 140
+    kd: 37
+    scheduled_date: "2026-08-31"
+    status: todo
+    published_date: null
+    published_url_fr: null
+    published_url_en: null
+    error: null
