@@ -6,6 +6,9 @@ description: "Quel est le meilleur concessionnaire Mercedes GLA ? Comparatif de 
 categories: ["Concessionnaires"]
 tags: ["concessionnaire Mercedes", "Mercedes GLA", "comparatif concessionnaires", "Como Mercedes", "LOA Mercedes", "Mercedes occasion", "SUV Mercedes"]
 author: julien-lambert
+image: "/images/blog/meilleur-concessionnaire-mercedes-gla.webp"
+imageAlt: "Mercedes-Benz GLA SUV compact premium stationne"
+imageCredit: "Photo par nakhon100 via Flickr (CC BY 2.0)"
 readingTime: true
 ---
 

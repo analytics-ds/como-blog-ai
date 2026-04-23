@@ -33,8 +33,20 @@
     </header>
 
     <div class="article-content">
-        <div class="container container-narrow">
-            {{ .Content }}
+        <div class="container">
+            <div class="article-layout">
+                {{ if .TableOfContents }}
+                <aside class="article-toc" aria-label="{{ if eq .Site.Language.Lang "en" }}Table of contents{{ else }}Sommaire{{ end }}">
+                    <div class="article-toc-inner">
+                        <p class="article-toc-label">{{ if eq .Site.Language.Lang "en" }}Contents{{ else }}Sommaire{{ end }}</p>
+                        {{ .TableOfContents }}
+                    </div>
+                </aside>
+                {{ end }}
+                <div class="article-body">
+                    {{ .Content }}
+                </div>
+            </div>
         </div>
     </div>
 

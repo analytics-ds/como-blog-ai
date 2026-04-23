@@ -25,7 +25,22 @@
                             <div class="mega-menu-grid">
                                 {{ range .Children }}
                                 <a href="{{ .URL | relURL }}" class="mega-menu-item">
-                                    <span class="mega-menu-icon" data-icon="{{ .Params.icon }}"></span>
+                                    <span class="mega-menu-icon" aria-hidden="true">
+                                        {{- $icon := .Params.icon -}}
+                                        {{- if eq $icon "car" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14l1.5-4.5A2 2 0 0 1 8.4 8h7.2a2 2 0 0 1 1.9 1.5L19 14"/><rect x="3.5" y="14" width="17" height="4.5" rx="1"/><circle cx="7.5" cy="18.5" r="1.3"/><circle cx="16.5" cy="18.5" r="1.3"/></svg>
+                                        {{- else if eq $icon "wallet" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16" cy="14.5" r="1.2"/></svg>
+                                        {{- else if eq $icon "bolt" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"/></svg>
+                                        {{- else if eq $icon "tag" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="8" cy="8" r="1.5"/></svg>
+                                        {{- else if eq $icon "map" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                                        {{- else if eq $icon "bulb" -}}
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5v.5h6v-.5c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+                                        {{- end -}}
+                                    </span>
                                     <div class="mega-menu-item-content">
                                         <span class="mega-menu-item-name">{{ .Name }}</span>
                                         <span class="mega-menu-item-desc">{{ .Params.description }}</span>

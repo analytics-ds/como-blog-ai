@@ -8,8 +8,8 @@ categories: ["Practical tips"]
 tags: ["Crit'Air sticker", "LEZ", "low emission zone", "French regulations", "Mercedes-Benz", "pollution", "air quality certificate"]
 author: julien-lambert
 image: "/images/blog/vignette-crit-air.webp"
-imageAlt: "Crit'Air sticker displayed on the windshield of a passenger car"
-imageCredit: "Photo by Massachusetts Dept. of Environmental Protection via Flickr (CC BY 2.0)"
+imageAlt: "View through a car windshield on a French urban street"
+imageCredit: "Photo by nicocrisafulli via Flickr (CC BY 2.0)"
 faq:
   - question: "Is the Crit'Air sticker still mandatory in 2026?"
     answer: "Yes, the Crit'Air sticker remains mandatory in 2026 inside low emission zones (LEZs) and during differentiated traffic periods. Despite the announced phase-out of LEZs, no repeal date has been set. Drivers traveling through an affected city must therefore continue to display the sticker or face a 68-euro fine for passenger cars."

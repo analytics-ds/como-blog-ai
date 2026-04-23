@@ -8,8 +8,8 @@ categories: ["Conseils pratiques"]
 tags: ["vignette crit air", "crit air", "ZFE", "reglementation automobile", "Mercedes-Benz", "pollution", "circulation differenciee"]
 author: julien-lambert
 image: "/images/blog/vignette-crit-air.webp"
-imageAlt: "Vignette Crit'Air apposee sur le pare-brise d'une voiture particuliere"
-imageCredit: "Photo par Massachusetts Dept. of Environmental Protection via Flickr (CC BY 2.0)"
+imageAlt: "Vue a travers un pare-brise de voiture sur une rue urbaine francaise"
+imageCredit: "Photo par nicocrisafulli via Flickr (CC BY 2.0)"
 faq:
   - question: "La vignette Crit'Air est-elle toujours obligatoire en 2026 ?"
     answer: "Oui, la vignette Crit'Air reste obligatoire en 2026 dans les zones a faibles emissions (ZFE) et lors des episodes de circulation differenciee. Malgre l'annonce de la fin progressive des ZFE, aucune date d'abrogation n'a ete fixee a ce jour. Les automobilistes qui circulent dans une agglomeration concernee doivent donc continuer a apposer leur vignette sous peine d'une amende de 68 euros pour une voiture particuliere."
