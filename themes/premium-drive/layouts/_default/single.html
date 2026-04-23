@@ -50,6 +50,40 @@
         </div>
     </div>
 
+    {{ with .Params.author }}
+    {{ $authorData := index $.Site.Data.authors . }}
+    {{ with $authorData }}
+    {{ $lang := $.Site.Language.Lang }}
+    <section class="author-box-section">
+        <div class="container container-narrow">
+            <aside class="author-box" aria-label="{{ if eq $lang "en" }}About the author{{ else }}A propos de l'auteur{{ end }}">
+                {{ with .avatar }}
+                <img src="{{ . | relURL }}" alt="{{ $authorData.name }}" class="author-box-avatar" width="96" height="96" loading="lazy">
+                {{ else }}
+                <div class="author-box-avatar author-avatar-placeholder" aria-hidden="true">{{ slicestr .name 0 1 }}</div>
+                {{ end }}
+                <div class="author-box-content">
+                    <span class="author-box-label">{{ if eq $lang "en" }}About the author{{ else }}A propos de l'auteur{{ end }}</span>
+                    <h3 class="author-box-name">{{ .name }}</h3>
+                    {{ with index .role $lang }}
+                    <span class="author-box-role">{{ . }}</span>
+                    {{ end }}
+                    {{ with index .bio $lang }}
+                    <p class="author-box-bio">{{ . }}</p>
+                    {{ end }}
+                    {{ with .expertise }}
+                    <div class="author-box-expertise">
+                        <span class="author-box-expertise-label">{{ if eq $lang "en" }}Expertise:{{ else }}Expertise :{{ end }}</span>
+                        {{ range $i, $e := . }}{{ if $i }}, {{ end }}<span class="author-box-expertise-item">{{ $e }}</span>{{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </aside>
+        </div>
+    </section>
+    {{ end }}
+    {{ end }}
+
     <footer class="article-footer">
         <div class="container container-narrow">
             <nav class="article-nav">
