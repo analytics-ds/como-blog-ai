@@ -37,10 +37,10 @@ articles:
     volume: 188200
     kd: 39
     scheduled_date: "2026-04-23"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-04-23"
+    published_url_fr: "https://magazine.como.fr/blog/vignette-crit-air/"
+    published_url_en: "https://magazine.como.fr/en/blog/crit-air-sticker/"
     error: null
 
   - kw: "diesel ou essence"
