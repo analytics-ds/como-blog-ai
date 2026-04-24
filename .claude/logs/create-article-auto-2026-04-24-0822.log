@@ -1,0 +1,34 @@
+create-article-auto — 2026-04-24 ~08:22 UTC
+Blog : como-blog-ai (Magazine Como)
+
+Entree roadmap eligible :
+  kw            : diesel ou essence
+  category      : Modeles et comparatifs
+  scheduled_date: 2026-04-24
+
+Etape 0 : OK (git pull main, branche main checkout).
+Etape 1.1 (SERP) : mcp__serpapi__search indisponible. Fallback WebSearch OK.
+  Top 5 organiques identifies :
+    1. maif.fr/vehicule-mobilite/guide-achat-voiture/essence-ou-diesel
+    2. aramisauto.com/guide-pratique/peugeot-occasion/diesel-et-essence/
+    3. ornikar.com/code/cours/ecologie/carburant/essence-diesel
+    4. starterre.fr/guide-achat/article/diesel-ou-essence
+    5. younited-credit.com/projets/credit-auto/infos/moteur-essence-ou-diesel
+
+Etape 1.2 (WebFetch concurrents) : ECHEC.
+  14 URLs tentees au total (top 5 + fallbacks).
+  Toutes renvoient HTTP 503 ou 403.
+  curl direct renvoie aussi 503 sur example.com : sandbox isole,
+  seul google.com repond via WebFetch.
+  Concurrents valides : 0 / minimum requis 3.
+
+Decision : abort per skill (etape 4 GESTION ERREUR).
+  - Aucun fichier article ecrit (pas de brouillon a nettoyer).
+  - roadmap.yaml : status=failed, error=details.
+  - Commit roadmap uniquement.
+  - Exit non-zero.
+
+Cause racine probable : proxy/sandbox environnement bloque les domaines
+hors whitelist. A investiguer cote infra (allowlist des domaines auto,
+ou bien reactivation du MCP mcp__serpapi__search qui fournirait les
+metadonnees SERP directement sans besoin de fetch HTML).

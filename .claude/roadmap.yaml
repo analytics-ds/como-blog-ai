@@ -48,11 +48,11 @@ articles:
     volume: 3400
     kd: 44
     scheduled_date: "2026-04-24"
-    status: todo
+    status: failed
     published_date: null
     published_url_fr: null
     published_url_en: null
-    error: null
+    error: "etape 1.2 WebFetch concurrents: toutes les URLs retournent 503/403 (0 concurrents valides, minimum requis 3). Environnement sandbox bloque les fetches hors whitelist Google."
 
   - kw: "meilleure voiture electrique"
     category: "Electrique"
