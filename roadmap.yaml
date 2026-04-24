@@ -70,10 +70,10 @@ articles:
     volume: 4200
     kd: 36
     scheduled_date: "2026-04-24"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-04-24"
+    published_url_fr: "https://magazine.como.fr/blog/quand-changer-courroie-de-distribution/"
+    published_url_en: "https://magazine.como.fr/en/blog/when-to-change-timing-belt/"
     error: null
 
   - kw: "meilleure voiture hybride"
