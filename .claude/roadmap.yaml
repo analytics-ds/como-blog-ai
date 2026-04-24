@@ -48,11 +48,11 @@ articles:
     volume: 3400
     kd: 44
     scheduled_date: "2026-04-24"
-    status: todo
+    status: failed
     published_date: null
     published_url_fr: null
     published_url_en: null
-    error: null
+    error: "etape 3 SerpAPI indispo (mcp__serpapi__search non disponible dans le sandbox)"
 
   - kw: "meilleure voiture electrique"
     category: "Electrique"
