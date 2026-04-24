@@ -60,36 +60,38 @@ L'entree selectionnee fournit : `kw`, `category`, `scheduled_date`.
 
 ## Etape 1 — Analyse SERP automatique
 
-### 1.1 Requete SerpAPI
+### 1.1 Requete SerpAPI (2 modes possibles)
 
-Appeler `mcp__serpapi__search` avec :
-- `q` = `kw` (mot-cle de la roadmap)
-- `hl` = langue principale du site (ex: `fr`)
-- `gl` = pays cible (ex: `fr` pour un blog FR)
-- `num` = 10
+**Mode A - MCP (runtime local)** : si l'outil `mcp__serpapi__search` est disponible, appeler avec `q=<kw>`, `engine=google`, `hl=fr`, `gl=fr`, `num=10`, `location=France`.
 
-Extraire :
-- Les 5 premiers resultats organiques (`organic_results[0..4]`) : URL, title, snippet
-- Les "People Also Ask" (`related_questions` ou `people_also_ask`) si presents
+**Mode B - curl direct (runtime cloud ou MCP indispo)** : si le MCP n'est pas charge, faire un appel HTTP a l'endpoint public SerpAPI. La cle API doit etre disponible dans la variable d'environnement `SERPAPI_API_KEY` (exportee par le prompt de la routine cloud) :
 
-### 1.2 Fetch des 5 concurrents
+```bash
+QUERY_ENC=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$KW")
+curl -s "https://serpapi.com/search.json?q=${QUERY_ENC}&engine=google&hl=fr&gl=fr&num=10&location=France&api_key=${SERPAPI_API_KEY}" > /tmp/serp.json
+```
 
-Pour chaque URL organique :
-- `WebFetch` du HTML
-- Extraire : balise `<title>`, `<meta name="description">`, H1, H2, H3 (dans l'ordre)
-- Compter le nombre de mots du body text (approximation OK)
+Parser le JSON avec python3 pour extraire les donnees ci-dessous. Si `SERPAPI_API_KEY` est absente ET mcp__serpapi__search indispo : marquer failed avec `error: "SerpAPI indispo (ni MCP ni env var)"` et abort.
 
-En cas d'echec sur 1 ou 2 URLs (timeout, 403), continuer avec les autres. Minimum 3 concurrents valides requis pour produire l'analyse. Si moins de 3, marquer failed et abort.
+### 1.2 Extraction donnees (sans fetch des concurrents)
+
+Extraire uniquement du resultat SerpAPI :
+- `organic_results[0..9]` : `title`, `link`, `snippet`
+- `related_questions` (People Also Ask) si presents
+- `related_searches` si presents
+
+**Ne PAS tenter de fetch les URLs concurrentes via WebFetch** : dans le sandbox cloud, les domaines commerciaux renvoient 503/403 systematiquement. L'analyse se fait uniquement sur les titles/snippets/PAA retournes par SerpAPI.
 
 ### 1.3 Synthese auto (aucun output humain, juste des variables internes)
 
-L'agent determine :
-- **Intention** : informationnelle (cas nominal), transactionnelle ou mixte (sur la base des titles)
-- **Patterns recurrents** : sujets presents chez 2+/5 concurrents (comptage des H2)
-- **Longueur moyenne** : moyenne des mots des 5 concurrents, utilisee comme cible de longueur (+/- 10%)
-- **FAQ pertinente ?** : vrai si au moins 50% des concurrents ont une section FAQ/H2 "Questions frequentes" OU si PAA retournes par SerpAPI
-- **Tableau pertinent ?** : vrai si au moins 2/5 concurrents utilisent un tableau
-- **Si FAQ pertinente** : construire la liste de questions a partir des PAA SerpAPI + FAQ concurrents, retirer doublons, reformuler (pas de copie mot pour mot), garder 4-6 questions
+L'agent determine a partir des donnees SerpAPI :
+- **Intention de recherche** : inferee du pattern recurrent des titles top 5 (informationnelle, transactionnelle, comparative, etc.)
+- **Angles concurrents** : sous-themes qui reviennent dans les titles et snippets (ex: prix, comparatif, avis, guide, duree de vie...)
+- **Champ semantique** : mots recurrents dans les titles, snippets et related_searches
+- **FAQ pertinente ?** : vrai si `related_questions` sont retournes par SerpAPI (PAA = signal fort que les utilisateurs posent des questions sur ce sujet)
+- **Longueur cible** : 1500-2000 mots par defaut (pas de mesure possible des concurrents, cible raisonnable pour un article evergreen qualitatif)
+- **Tableau pertinent ?** : vrai par defaut pour les requetes a intention comparative (mots "meilleur", "top", "vs", "ou" dans les titles), false sinon
+- **Si FAQ pertinente** : construire la liste de questions a partir des `related_questions` de SerpAPI, retirer doublons, reformuler (pas de copie mot pour mot), garder 4-6 questions
 
 ## Etape 2 — Title et meta description (regles pixel inline)
 
