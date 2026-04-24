@@ -59,10 +59,10 @@ articles:
     volume: 3100
     kd: 39
     scheduled_date: "2026-04-24"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-04-24"
+    published_url_fr: "https://magazine.como.fr/blog/meilleure-voiture-electrique/"
+    published_url_en: "https://magazine.como.fr/en/blog/best-electric-car/"
     error: null
 
   - kw: "quand changer courroie de distribution"
