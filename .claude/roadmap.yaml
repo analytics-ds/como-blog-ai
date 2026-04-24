@@ -48,10 +48,10 @@ articles:
     volume: 3400
     kd: 44
     scheduled_date: "2026-04-24"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-04-24"
+    published_url_fr: "https://magazine.como.fr/blog/diesel-ou-essence/"
+    published_url_en: "https://magazine.como.fr/en/blog/diesel-or-petrol/"
     error: null
 
   - kw: "meilleure voiture electrique"
