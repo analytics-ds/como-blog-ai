@@ -35,7 +35,7 @@ Ce repo ne contient pas de site. Il contient les **instructions et templates** p
 │   ├── seo.md                   ← Mode interactif SEO (modifications ponctuelles)
 │   ├── serve.md                 ← Lancer le serveur Hugo en local
 │   └── share.md                 ← Lancer Hugo + ngrok (partage public)
-├── roadmap.yaml                 ← Roadmap editoriale evergreen (alimente /create-article-auto)
+├── settings.json                ← Allowlist permissions pour runs CCR (pas de popup)
 └── templates/
     ├── hugo-workflow.yml         ← GitHub Actions CI/CD
     ├── roadmap-template.yaml     ← Squelette commente de la roadmap editoriale

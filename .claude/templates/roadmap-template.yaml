@@ -3,13 +3,21 @@
 # Ce fichier alimente la skill /create-article-auto (publication automatique
 # d'articles evergreen SEO, bilingue FR + EN).
 #
+# EMPLACEMENT
+# -----------
+# Ce fichier doit vivre **a la racine du repo du blog** (et PAS dans .claude/).
+# Raison : les fichiers dans .claude/ sont traites comme sensibles par Claude Code
+# et declenchent un popup a chaque edit, non contournable, qui bloquerait les
+# runs cron de nuit.
+#
 # FONCTIONNEMENT
 # --------------
 # A chaque execution (planifiee via /schedule ou manuelle), l'agent :
 #   1. Filtre les entrees avec status: todo et scheduled_date <= today
 #   2. Prend la plus ancienne
-#   3. Analyse la SERP sur le kw (SerpAPI + WebFetch des 5 concurrents)
-#   4. Genere l'article FR + EN en full auto
+#   3. Analyse la SERP sur le kw (SerpAPI via curl direct sur l'API publique ;
+#      pas de fetch des pages concurrentes, le sandbox cloud les bloque en 503)
+#   4. Genere l'article FR + EN en full auto (Sonnet 4.6 par defaut)
 #   5. Publie sur GitHub (push main direct, GitHub Actions deploie)
 #   6. Met a jour l'entree ci-dessous : status: done, published_date, URLs
 #
@@ -17,6 +25,21 @@
 #   - status passe a failed
 #   - error est rempli avec le message
 #   - l'entree n'est PAS retentee automatiquement (intervention humaine requise)
+#
+# COMMENT AJOUTER UNE ENTREE (humain)
+# -----------------------------------
+# 1. Copier le bloc "exemple" ci-dessous a la fin de la liste `articles`
+# 2. Renseigner : kw, category (doit matcher hugo.toml), scheduled_date
+# 3. Renseigner volume et kd (optionnels, juste pour prioriser)
+# 4. Laisser les autres champs a null (remplis par l'agent)
+# 5. Commit + push. La prochaine execution cron eligible prendra l'entree
+#
+# DEBLOQUER UNE ENTREE FAILED
+# ---------------------------
+# 1. Lire le message dans `error:` pour comprendre la cause
+# 2. Corriger si besoin (kw trop concurrentiel, category invalide, etc.)
+# 3. Repasser `status: todo` et vider `error: null`
+# 4. Commit + push, l'agent reprendra l'entree au prochain run
 #
 # CHAMPS EDITABLES PAR L'HUMAIN
 # -----------------------------

@@ -27,9 +27,22 @@
 # Remplis par l'agent (ne pas toucher sauf pour debloquer un failed) :
 #   published_date, published_url_fr, published_url_en, error
 #
-# CADENCE : 2 articles/semaine, mardi + vendredi
-# Article 1 (vignette crit air) : test manuel Damien le 23/04
-# Articles 2 a 37 : lances par la routine /schedule a partir du vendredi 24/04/2026
+# CADENCE : 2 articles/semaine, mardi + vendredi 3h Paris (routine /schedule)
+#
+# COMMENT AJOUTER UNE ENTREE
+# --------------------------
+# 1. Copier un bloc existant a la fin de la liste `articles` ci-dessous
+# 2. Renseigner kw / category (cf. liste valide plus haut) / scheduled_date (YYYY-MM-DD)
+# 3. Optionnel : volume et kd (juste pour t'aider a prioriser, ignores par l'agent)
+# 4. Laisser status: todo et les autres champs a null (remplis par l'agent)
+# 5. Commit + push sur main. La prochaine execution cron eligible prendra l'entree.
+#
+# DEBLOQUER UN FAILED
+# -------------------
+# Si une entree a status: failed, lire le champ error pour comprendre la cause.
+# Corriger, puis repasser status: todo + vider error: null. Commit + push.
+#
+# Doc complete de la skill : .claude/skills/create-article-auto/SKILL.md
 
 articles:
   - kw: "vignette crit air"
