@@ -17,7 +17,7 @@ Ce repo ne contient pas de site. Il contient les **instructions et templates** p
 ### Utilisation courante
 
 - `/create-article` : creer un nouvel article de blog (choix parmi plusieurs types : article standard, comparatif) — workflow interactif
-- `/create-article-auto` : **publication automatique** d'un article evergreen SEO bilingue FR+EN depuis la roadmap `.claude/roadmap.yaml`. Full auto, aucun input humain. Declenchee manuellement pour tester ou via routine `/schedule` 2x/semaine en production. Voir section "Publications evergreen automatiques" plus bas
+- `/create-article-auto` : **publication automatique** d'un article evergreen SEO bilingue FR+EN depuis la roadmap `roadmap.yaml`. Full auto, aucun input humain. Declenchee manuellement pour tester ou via routine `/schedule` 2x/semaine en production. Voir section "Publications evergreen automatiques" plus bas
 - `/seo-setup` : generer ou mettre a jour les fichiers SEO techniques de base (robots.txt, llms.txt, sitemap, structured data)
 - `/seo` : mode interactif pour modifier/ajouter des elements SEO (meta tags, JSON-LD, audit on-page, etc.)
 - `/serve` : lancer le serveur Hugo en local (previsualisation sur `http://localhost:1313/`)
@@ -223,12 +223,12 @@ En plus des articles GEO (comparatifs, rediges manuellement), ce blog publie aut
 ### Principe
 
 - SEO pur, pas GEO. Mot-cle simple, analyse SERP auto, structure Hn basee sur les concurrents, redaction FR + EN.
-- Full auto : aucun input humain au runtime. La seule intervention humaine est **la roadmap** (`.claude/roadmap.yaml`).
+- Full auto : aucun input humain au runtime. La seule intervention humaine est **la roadmap** (`roadmap.yaml`).
 - Frequence cible : 2 articles/semaine (mardi + vendredi, 3h du mat, via routine `/schedule`).
 
 ### Roadmap
 
-Fichier : `.claude/roadmap.yaml`. Format documente dans `.claude/templates/roadmap-template.yaml`.
+Fichier : `roadmap.yaml`. Format documente dans `.claude/templates/roadmap-template.yaml`.
 
 Chaque entree decrit 1 article a publier. L'humain edite `kw`, `category`, `scheduled_date`. L'agent remplit `status`, `published_date`, `published_url_fr`, `published_url_en`, `error`.
 
@@ -252,5 +252,5 @@ Demander a Claude "ajoute ces KW a la roadmap Como" marche aussi, il edite le YA
 
 - Roadmap : champs `published_date` + URLs des entrees traitees
 - `MEMORY.md` a la racine du blog : ligne par article avec suffixe `| auto` pour les articles generes par cette skill (vs les articles manuels via `/create-article`)
-- Logs : `.claude/logs/create-article-auto-[date].log` (rotation 30 derniers)
+- Logs : `/tmp/create-article-auto-[date].log` (rotation 30 derniers)
 
