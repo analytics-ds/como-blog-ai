@@ -28,9 +28,9 @@ Aucune question a l'utilisateur. Toutes les decisions sont prises par l'agent a 
 
 Si une etape bloque (SerpAPI indispo, image introuvable, build Hugo echoue, push rejete apres rebase), l'agent **n'insiste pas** : il marque l'entree `status: failed` dans la roadmap avec le message d'erreur, commit le roadmap, et sort proprement en exit code non-zero.
 
-## Difference avec /create-article
+## Difference avec /create-article-geo
 
-| Element | `/create-article` | `/create-article-auto` |
+| Element | `/create-article-geo` | `/create-article-auto` |
 |---|---|---|
 | Interactivite | Oui, plusieurs points d'arret | Non, full auto |
 | Type d'article | Standard OU geo-comparatif (GEO) | Standard uniquement (SEO pur) |
@@ -127,7 +127,7 @@ Pas d'appel aux skills `/tech-title` ni `/tech-meta-description`. Regles appliqu
 
 ## Etape 4 — Selection auto de l'auteur
 
-Identique a la logique de `/create-article` etape 1.3 :
+Identique a la logique de `/create-article-geo` etape 1.3 :
 
 1. Lire `data/authors.yaml`.
 2. Pour chaque auteur, compter les matches entre ses `topics`/`expertise` et le `kw` + la `category` de la roadmap.
@@ -240,7 +240,7 @@ Ajouter une ligne dans la section de la semaine en cours :
 - YYYY-MM-DD | [Titre FR] (FR+EN) | [Categorie] | auto
 ```
 
-Le suffixe `auto` distingue les articles generes par cette skill des articles produits a la main via `/create-article`.
+Le suffixe `auto` distingue les articles generes par cette skill des articles produits a la main via `/create-article-geo`.
 
 ## Etape 11 — Commit et push
 
