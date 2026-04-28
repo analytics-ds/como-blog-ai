@@ -293,3 +293,28 @@ Le suivi des articles publies en auto se fait via :
 - Le champ `published_date` / URLs de chaque entree de la roadmap
 - Le `MEMORY.md` a la racine du blog (suffixe ` | auto` sur les lignes generees par cette skill)
 
+## Suivi des publications (MEMORY.md)
+
+Le fichier `MEMORY.md` a la racine trace tous les articles publies, classes par semaine. Il est mis a jour automatiquement par `/create-article-geo` et `/create-article-seo`.
+
+**Repere indicatif : 4 articles par semaine.** C'est un rythme cible pour eviter la publication en masse. **Ce n'est pas un blocage.**
+
+Comportement par skill :
+- `/create-article-geo` (creation manuelle interactive) : si 4 articles ou plus deja publies cette semaine, **simple warning** affiche a l'utilisateur. L'utilisateur peut continuer en validant. Ne JAMAIS bloquer.
+- `/create-article-seo` (batch local methode 2) : meme principe, warning soft en pre-validation, jamais de blocage.
+- `/create-article-auto` (routine cron methode 1, mardi/vendredi) : **la regle ne s'applique pas**. La routine publie systematiquement l'entree eligible de la roadmap, sans lire le quota hebdo. Aucun check, aucun warning.
+
+## Garde-fou cannibalisation a l'ajout dans la roadmap
+
+Quand l'utilisateur (ou Claude pour son compte) ajoute un nouveau mot-cle dans `roadmap.yaml` (ou dans une roadmap externe en mode B/C de `/create-article-seo`), executer un check de cannibalisation **soft** avant insertion :
+
+1. Lire toutes les entrees existantes de `roadmap.yaml` (tous statuts confondus : todo, queued, done, failed).
+2. Pour chaque entree existante, comparer le `kw` propose au `kw` existant :
+   - Tokeniser les deux KW (lowercase, retirer stop words FR/EN courants : le/la/les/de/du/des/un/une/a/au/aux/the/of/and/or/in/on/for...).
+   - Calculer l'overlap : nombre de tokens communs / nombre de tokens du KW le plus court.
+   - Drapeau "risque" si overlap >= 50% OU si l'un des KW est sous-string complet de l'autre.
+3. Si au moins un drapeau "risque" est leve : afficher un warning a l'utilisateur listant les KW suspects et demander confirmation explicite ("Cannibalisation potentielle avec : [liste]. Ajouter quand meme ? oui/non").
+4. Si aucun risque : ajouter directement, pas de warning.
+
+Ce garde-fou est purement informatif. L'utilisateur peut toujours forcer l'ajout. L'objectif est juste de l'avertir avant qu'il ne commande deux articles qui se cannibaliseraient en SERP.
+
