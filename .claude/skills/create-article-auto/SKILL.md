@@ -153,8 +153,8 @@ bash .claude/scripts/fetch-image.sh "<kw traduit en anglais>" "<slug-fr>" "stati
 
 - La query image est le `kw` traduit en anglais (Openverse est majoritairement indexe en anglais).
 - Si le script renvoie un code non-zero, retenter **une seule fois** avec une query plus generique (la `category` traduite en anglais).
-- Si 2e echec : marquer `failed` avec erreur "image fetch failed" et abort.
-- Recuperer les 3 sorties du script (chemin, alt, credit) pour le frontmatter.
+- Si 2e echec : **ne pas marquer `failed`**. Continuer la publication sans image hero (champs `image`, `imageAlt`, `imageCredit` omis du frontmatter ou laisses vides). L'absence d'image n'est pas une raison d'avorter : l'article est publie, le site fonctionne sans hero.
+- Recuperer les 3 sorties du script (chemin, alt, credit) pour le frontmatter **uniquement si le script a reussi**.
 
 ## Etape 6 — Maillage interne auto
 
