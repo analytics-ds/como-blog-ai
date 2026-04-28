@@ -42,6 +42,16 @@
 # Si une entree a status: failed, lire le champ error pour comprendre la cause.
 # Corriger, puis repasser status: todo + vider error: null. Commit + push.
 #
+# REGLE DE DIVERSITE DES CATEGORIES (obligatoire)
+# -----------------------------------------------
+# L'ordre chronologique de publication doit alterner les categories pour
+# proposer un flux varie aux lecteurs et aux moteurs.
+#   1. JAMAIS 2 articles consecutifs (par scheduled_date) de la meme categorie.
+#   2. Sur toute fenetre glissante de 5 articles consecutifs, au moins
+#      3 categories distinctes doivent etre representees.
+#   3. Si peu de categories sont disponibles, alternance maximale.
+# A respecter a chaque ajout d'entree ET a chaque reordonnancement.
+#
 # Doc complete de la skill : .claude/skills/create-article-auto/SKILL.md
 
 articles:
