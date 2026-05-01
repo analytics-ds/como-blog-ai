@@ -2,6 +2,8 @@
 
 ## Semaine 18 (27/04/2026 - 03/05/2026)
 - 2026-04-28 | Meilleur concessionnaire Mercedes Classe A : comparatif 2026 (FR+EN) | Concessionnaires
+- 2026-05-01 | Geely France : la marque chinoise arrive en 2026 (FR+EN) | Electrique, Geely | ponctuel
+- 2026-05-01 | Geely France prix : tarifs et financement des SUV en 2026 (FR+EN) | Electrique, Geely | ponctuel
 
 ## Semaine 17 (20/04/2026 - 26/04/2026)
 - 2026-04-23 | Vignette Crit'Air 2026 : prix, classes et obligations (FR+EN) | Conseils pratiques | auto
