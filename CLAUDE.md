@@ -230,7 +230,7 @@ En plus des articles GEO (geo-comparatif, rediges a la main via `/create-article
 - **Maillage cross-batch** : non (1 article a la fois)
 - **Publication** : push immediat -> en ligne tout de suite
 - **Cas d'usage** : tient la cadence sans intervention humaine, ideal pour les blogs avec roadmap stable
-- **Exemple en prod dans le reseau** : `como-blog-ai`
+- **Exemple en prod dans le reseau** : `magazine-como`
 
 ### Methode 2 : batch local + GitHub Actions cron (`/create-article-seo`)
 

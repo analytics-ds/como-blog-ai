@@ -2,7 +2,7 @@
 
 Cette skill produit en **local** (Mac de Damien, Opus 4.7 sans limite Stream idle timeout) un **ou plusieurs articles evergreen SEO bilingues FR + EN**. Polyvalente : 3 modes de selection des KW + 3 strategies de scheduling.
 
-C'est **la methode 2** du systeme PBN GEO datashake (alternative au CCR cloud `/create-article-auto` utilise sur `como-blog-ai`). Avantages :
+C'est **la methode 2** du systeme PBN GEO datashake (alternative au CCR cloud `/create-article-auto` utilise sur `magazine-como`). Avantages :
 - Opus 4.7 sans risque de Stream idle timeout
 - Vraie analyse SERP avec WebFetch des concurrents (sandbox cloud bloque les domaines commerciaux)
 - Maillage interne plus riche (cross-batch : articles d'un meme batch peuvent se mailler entre eux)
