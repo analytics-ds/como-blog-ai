@@ -109,10 +109,10 @@ articles:
     volume: null
     kd: null
     scheduled_date: "2026-05-05"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-05-05"
+    published_url_fr: "https://magazine.como.fr/blog/geely-starray/"
+    published_url_en: "https://magazine.como.fr/en/blog/geely-starray/"
     error: null
 
   - kw: "meilleure voiture hybride"
