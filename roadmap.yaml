@@ -120,10 +120,10 @@ articles:
     volume: 2100
     kd: 39
     scheduled_date: "2026-05-08"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-05-08"
+    published_url_fr: "https://magazine.como.fr/blog/meilleure-voiture-hybride/"
+    published_url_en: "https://magazine.como.fr/en/blog/best-hybrid-car/"
     error: null
 
   - kw: "geely e5"
