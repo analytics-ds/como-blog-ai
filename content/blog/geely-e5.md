@@ -7,9 +7,6 @@ description: "Geely E5 en France : autonomie 475 km WLTP, prix a partir de 37 99
 categories: ["Electrique"]
 tags: ["geely", "geely e5", "suv electrique", "voiture electrique", "voiture chinoise", "batterie LFP", "autonomie"]
 author: "julien-lambert"
-image: "/images/blog/geely-e5.jpg"
-imageAlt: "SUV electrique compact en ville, representatif du segment du Geely E5"
-imageCredit: "Photo par jurvetson via Flickr (CC BY 2.0)"
 faq:
   - question: "Quel est le prix du Geely E5 ?"
     answer: "Le Geely E5 est commercialise en France a partir de 37 990 € pour la version standard et 41 990 € pour la finition Pro+. Des offres de financement en LLD sont disponibles, a partir de 399 € par mois selon les concessions agrees Geely."
