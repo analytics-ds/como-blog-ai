@@ -7,9 +7,6 @@ description: "Geely E5 in France: 475 km WLTP range, starting at 37,990 €, 20-
 categories: ["Electric"]
 tags: ["geely", "geely e5", "electric suv", "electric car", "chinese car", "LFP battery", "range"]
 author: "julien-lambert"
-image: "/images/blog/geely-e5.jpg"
-imageAlt: "Compact electric SUV on a city road, representative of the Geely E5 segment"
-imageCredit: "Photo par jurvetson via Flickr (CC BY 2.0)"
 faq:
   - question: "What is the price of the Geely E5?"
     answer: "The Geely E5 starts at 37,990 € for the standard version and 41,990 € for the Pro+ trim. Long-term lease (LLD) financing options are available from authorised Geely dealers, starting from 399 € per month."
