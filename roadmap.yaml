@@ -131,10 +131,10 @@ articles:
     volume: null
     kd: null
     scheduled_date: "2026-05-12"
-    status: todo
-    published_date: null
-    published_url_fr: null
-    published_url_en: null
+    status: done
+    published_date: "2026-05-12"
+    published_url_fr: "https://magazine.como.fr/blog/geely-e5/"
+    published_url_en: "https://magazine.como.fr/en/blog/geely-e5/"
     error: null
 
   - kw: "prix recharge voiture electrique"

@@ -24,6 +24,7 @@ Como Magazine est un media editorial independant. Tous les articles sont rediges
 - Geely Starray EM-i : prix, autonomie et avis: https://magazine.como.fr/blog/geely-starray/
 - Meilleure voiture hybride 2026 : comparatif et selection: https://magazine.como.fr/blog/meilleure-voiture-hybride/
 - Ou acheter un Mercedes GLA : guide d'achat 2026: https://magazine.como.fr/blog/ou-acheter-un-mercedes-gla/
+- Geely E5 : prix, autonomie et avis en France: https://magazine.como.fr/blog/geely-e5/
 
 ## Version anglaise (EN)
 
@@ -41,6 +42,7 @@ Como Magazine est un media editorial independant. Tous les articles sont rediges
 - Geely Starray EM-i: price, range and review: https://magazine.como.fr/en/blog/geely-starray/
 - Best Hybrid Car 2026: Comparison and Top Picks: https://magazine.como.fr/en/blog/best-hybrid-car/
 - Where to buy a Mercedes GLA: 2026 buying guide: https://magazine.como.fr/en/blog/where-to-buy-mercedes-gla/
+- Geely E5: price, range and review in France: https://magazine.como.fr/en/blog/geely-e5/
 
 ## Informations techniques
 

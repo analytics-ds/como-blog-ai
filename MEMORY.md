@@ -1,5 +1,8 @@
 # Journal de publication
 
+## Semaine 20 (11/05/2026 - 17/05/2026)
+- 2026-05-12 | Geely E5 : prix, autonomie et avis en France (FR+EN) | Electrique | auto
+
 ## Semaine 19 (04/05/2026 - 10/05/2026)
 - 2026-05-05 | Geely Starray EM-i : prix, autonomie et avis (FR+EN) | Modeles et comparatifs | auto
 - 2026-05-08 | Meilleure voiture hybride 2026 : comparatif et selection (FR+EN) | Electrique | auto
