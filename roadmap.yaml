@@ -142,11 +142,11 @@ articles:
     volume: 3100
     kd: 27
     scheduled_date: "2026-05-15"
-    status: todo
+    status: failed
     published_date: null
     published_url_fr: null
     published_url_en: null
-    error: null
+    error: "[Etape 1] SerpAPI cle invalide : Invalid API key"
 
   - kw: "voiture chinoise"
     category: "Modeles et comparatifs"
